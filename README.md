@@ -3,6 +3,23 @@
 #### This is the code repository of **Scaling Up Dynamic Human-Scene Interaction Modeling** at **CVPR24 (highlight)** 
 #### [arXiv](https://arxiv.org/abs/2403.08629) | [Project Page](https://jnnan.github.io/trumans/) | [Dataset](https://docs.google.com/forms/d/e/1FAIpQLSdF62BQ9TQTSTW0HzyNeRPhlzmREL5T8hUGn-484W1I3eVihQ/viewform?usp=sf_link) | [Demo](https://huggingface.co/spaces/jnnan/trumans)
 
+# Installation for WebUI
+First make a conda environment. And install dependencies.
+```
+conda create --name trumans python=3.8
+conda activate trumans
+pip install Flask
+pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu113/
+```
+
+Download the necessary files and folders from [this link](https://drive.google.com/file/d/1sjfaUTg2pv7VEjQYwk313vZSbG_kXPv0/view?usp=sharing).
+Extract trumans_demo.zip, and place the four folders at the root of the project directory (./trumans_utils).
+
+Then run the following.
+```
+python3 -m flask run --host=0.0.0.0
+```
+
 # News
 - [Training code](#training) has been updated
 - 🎉🎉🎉 **The Action Annotation is released!** 🎉🎉🎉 Download the full dataset from [Google Drive](https://docs.google.com/forms/d/e/1FAIpQLSdF62BQ9TQTSTW0HzyNeRPhlzmREL5T8hUGn-484W1I3eVihQ/viewform?usp=sf_link) and the action annotation is in the **Actions** folder, with start frame, end frame and textual description.
