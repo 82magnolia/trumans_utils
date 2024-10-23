@@ -15,7 +15,7 @@ stay_and_act: false
 method_name: Test
 continue_last: false
 
-#exp_dir: ${oc.env:ROOT_DIR}/Experiments/${exp_name}
+exp_dir: ./Experiments/
 ckpt_dir: ./Checkpoints
 smpl_dir: ./smpl_models
 #test_dir: ${oc.env:ROOT_DIR}/Test_settings

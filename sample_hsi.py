@@ -272,16 +272,16 @@ def sample_wrapper(trajectory, obj_locs):
                                                                    speed=int(0.6 * base_speed))
     points_all = sample_step(cfg, mat, obj_locs, goal_list, action_label_list, sampler_list)
 
-    # os.makedirs(cfg.exp_dir, exist_ok=True)
+    os.makedirs(cfg.exp_dir, exist_ok=True)
     vertices = None
     for i in range(cfg.batch_size):
         keypoint_gene_torch = torch.from_numpy(points_all[i]).reshape(-1, cfg.dataset.nb_joints * 3).to(device)
         pose, transl, left_hand, right_hand, vertices = joints_to_smpl(model_joints_to_smplx, keypoint_gene_torch, cfg.dataset.joints_ind, cfg.interp_s)
-        # output_data = {'transl': transl, 'body_pose': pose[:, 3:], 'global_orient': pose[:, :3],
-        #                'id': 0}
-        # print(output_data)
-        # with open(os.path.join(cfg.exp_dir, f'{method_name}_{lid}_{i}.pkl'), 'wb') as f:
-        #     pkl.dump(output_data, f)
+        output_data = {'transl': transl, 'body_pose': pose[:, 3:], 'global_orient': pose[:, :3],
+                        'id': 0}
+        print(output_data)
+        with open(os.path.join(cfg.exp_dir, f'{method_name}_{lid}_{i}.pkl'), 'wb') as f:
+            pkl.dump(output_data, f)
 
     # vertices = np.load('/home/jiangnan/SyntheticHSI/Gradio_demo/vertices.npy', allow_pickle=True)
     # np.save('/home/jiangnan/SyntheticHSI/Gradio_demo/vertices.npy', vertices)
